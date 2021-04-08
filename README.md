@@ -13,7 +13,7 @@
   <li><ul>Phần chức năng của độc giả / khách truy cập website:
   <li>Xem các bài viết review được sắp xếp theo chủ đề</li>
   <li>Tìm kiếm bài viết</li>
-  <li>Thực hiện các tương tác (bình luận, báo cáo, liên hệ)</li>
+  <li>Thực hiện các tương tác (bình luận, liên hệ)</li>
   </ul>
   </li>
   <li>
