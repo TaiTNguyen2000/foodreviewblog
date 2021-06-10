@@ -37,7 +37,7 @@ exports.read = (req, res) => {
   Tag.findOne({ slug }).exec((err, tag) => {
     if (err) {
       return res.status(400).json({
-        error: 'Tag not found',
+        error: 'Không tìm thấy thẻ',
       });
     }
     // res.json(tag);
@@ -69,7 +69,7 @@ exports.remove = (req, res) => {
       });
     }
     res.json({
-      message: 'Tag deleted successfully',
+      message: 'Xoá thẻ thành công',
     });
   });
 };

@@ -18,7 +18,7 @@ exports.publicProfile = (req, res) => {
   User.findOne({ username }).exec((err, userFromDB) => {
     if (err || !userFromDB) {
       return res.status(400).json({
-        error: 'User not found',
+        error: 'Không tìm thấy người dùng',
       });
     }
     user = userFromDB;
@@ -53,7 +53,7 @@ exports.update = (req, res) => {
   form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        error: 'Photo could not be uploaded',
+        error: 'Không thể tải hình ảnh lên',
       });
     }
     let user = req.profile;
@@ -61,14 +61,14 @@ exports.update = (req, res) => {
 
     if (fields.password && fields.password.length < 6) {
       return res.status(400).json({
-        error: 'Password should be min 6 characters long',
+        error: 'Mật khẩu phải có ít nhất 6 ký tự',
       });
     }
 
     if (files.photo) {
       if (files.photo.size > 10000000) {
         return res.status(400).json({
-          error: 'Image should be less than 1mb',
+          error: 'Hình ảnh phải dưới 1MB',
         });
       }
       user.photo.data = fs.readFileSync(files.photo.path);
@@ -78,7 +78,7 @@ exports.update = (req, res) => {
     user.save((err, result) => {
       if (err) {
         return res.status(400).json({
-          error: 'All fields required',
+          error: 'Vui lòng điền tất cả các chỗ trống',
         });
       }
       user.hashed_password = undefined;
@@ -94,7 +94,7 @@ exports.photo = (req, res) => {
   User.findOne({ username }).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({
-        error: 'User not found',
+        error: 'Không tìm thấy người dùng',
       });
     }
     if (user.photo.data) {

@@ -10,7 +10,7 @@ exports.signup = (req, res) => {
   User.findOne({ email: req.body.email }).exec((err, user) => {
     if (user) {
       return res.status(400).json({
-        error: 'Email is taken',
+        error: 'Email đã tồn tại',
       });
     }
 
@@ -29,7 +29,7 @@ exports.signup = (req, res) => {
       //     user: success
       // });
       res.json({
-        message: 'Signup success! Please signin.',
+        message: 'Đăng ký thành công! Vui lòng đăng nhập.',
       });
     });
   });
@@ -41,13 +41,13 @@ exports.signin = (req, res) => {
   User.findOne({ email }).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({
-        error: 'User with that email does not exist. Please signup.',
+        error: 'Không tìm thấy người dùng, vui lòng đăng ký',
       });
     }
     // authenticate
     if (!user.authenticate(password)) {
       return res.status(400).json({
-        error: 'Email and password do not match.',
+        error: 'Email hoặc mật khẩu không đúng',
       });
     }
     // generate a token and send to client
@@ -67,7 +67,7 @@ exports.signin = (req, res) => {
 exports.signout = (req, res) => {
   res.clearCookie('token');
   res.json({
-    message: 'Signout success',
+    message: 'Đăng xuất thành công',
   });
 };
 
@@ -80,7 +80,7 @@ exports.authMiddleware = (req, res, next) => {
   User.findById({ _id: authUserId }).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({
-        error: 'User not found',
+        error: 'Không tìm thấy người dùng',
       });
     }
     req.profile = user;
@@ -93,13 +93,13 @@ exports.adminMiddleware = (req, res, next) => {
   User.findById({ _id: adminUserId }).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({
-        error: 'User not found',
+        error: 'Không tìm thấy người dùng',
       });
     }
 
     if (user.role !== 1) {
       return res.status(400).json({
-        error: 'Admin resource. Access denied',
+        error: 'Không có quyền thực hiện yêu cầu',
       });
     }
 
@@ -120,7 +120,7 @@ exports.canUpdateDeleteBlog = (req, res, next) => {
       data.postedBy._id.toString() === req.profile._id.toString();
     if (!authorizedUser) {
       return res.status(400).json({
-        error: 'You are not authorized',
+        error: 'Không có quyền thực hiện yêu cầu',
       });
     }
     next();

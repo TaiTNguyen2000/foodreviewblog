@@ -8,15 +8,14 @@ exports.contactForm = (req, res) => {
   const emailData = {
     to: process.env.EMAIL_TO,
     from: process.env.EMAIL_FROM,
-    subject: `Contact form - ${process.env.APP_NAME}`,
-    text: `Email received from contact from \n Sender name: ${name} \n Sender email: ${process.env.EMAIL_FROM} \n Sender message: ${message}`,
+    subject: `Liên hệ - ${process.env.APP_NAME}`,
+    text: `Nhận được email từ \n Tên người gửi: ${name} \n Địa chỉ email: ${process.env.EMAIL_FROM} \n Lời nhắn: ${message}`,
     html: `
-            <h4>Email received from contact form:</h4>
-            <p>Sender name: ${name}</p>
-            <p>Sender email: ${process.env.EMAIL_FROM}</p>
-            <p>Sender message: ${message}</p>
+            <h4>Nhận được email từ:</h4>
+            <p>Tên người gửi: ${name}</p>
+            <p>Địa chỉ email: ${process.env.EMAIL_FROM}</p>
+            <p>Lời nhắn: ${message}</p>
             <hr />
-            <p>This email may contain sensitive information</p>
             <p>https://foodie.com</p>
         `,
   };
@@ -53,15 +52,14 @@ exports.contactBlogAuthorForm = (req, res) => {
   const emailData = {
     to: authorEmail,
     from: process.env.EMAIL_FROM,
-    subject: `Someone messaged you from ${process.env.APP_NAME}`,
-    text: `Email received from contact from \n Sender name: ${name} \n Sender email: ${process.env.EMAIL_FROM} \n Sender message: ${message}`,
+    subject: `Ai đó đã liên hệ với bạn từ ${process.env.APP_NAME}`,
+    text: `Nhận được lời nhắn từ \n Tên người gửi: ${name} \n Địa chỉ email: ${process.env.EMAIL_FROM} \n Lời nhắn: ${message}`,
     html: `
-            <h4>Message received from:</h4>
-            <p>name: ${name}</p>
-            <p>Email: ${process.env.EMAIL_FROM}</p>
-            <p>Message: ${message}</p>
+            <h4>Nhận được lời nhắn từ:</h4>
+            <p>Tên người gửi: ${name}</p>
+            <p>Địa chỉ email: ${process.env.EMAIL_FROM}</p>
+            <p>Lời nhắn: ${message}</p>
             <hr />
-            <p>This email may contain sensitive information</p>
             <p>https://foodie.com</p>
         `,
   };

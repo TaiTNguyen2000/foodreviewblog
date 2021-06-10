@@ -42,21 +42,21 @@ const Index = () => {
                     style={{
                       backgroundImage:
                         'url(' +
-                        'https://images.pexels.com/photos/540518/pexels-photo-540518.jpeg' +
+                        'https://i.pinimg.com/564x/d3/42/1f/d3421fedf1f7648ca7c7f1879c397c4b.jpg ' +
                         ')',
                     }}
                   >
-                    <h2 className='text-shadow text-center h1'>React</h2>
+                    <h2 className='text-shadow text-center h1'>
+                      Ẩm thực thế giới
+                    </h2>
                   </div>
                   <div className='back text-center'>
-                    <Link href='/categories/viet-food'>
+                    <Link href='/categories/am-thuc-the-gioi'>
                       <a>
-                        <h3 className='h1'>React Js</h3>
+                        <h3 className='h1'>Ẩm thực thế giới</h3>
                       </a>
                     </Link>
-                    <p className='lead'>
-                      The world's most popular frontend web development library
-                    </p>
+                    <p className='lead'></p>
                   </div>
                 </div>
               </div>
@@ -68,22 +68,21 @@ const Index = () => {
                     style={{
                       backgroundImage:
                         'url(' +
-                        'https://images.pexels.com/photos/540518/pexels-photo-540518.jpeg' +
+                        'https://www.itourvn.com/images/easyblog_articles/390/local-places-eat-in-SG.jpg' +
                         ')',
                     }}
                   >
-                    <h2 className='text-shadow text-center h1'>Node</h2>
+                    <h2 className='text-shadow text-center h1'>
+                      Địa điểm ăn uống
+                    </h2>
                   </div>
                   <div className='back text-center'>
-                    <Link href='/categories/node'>
+                    <Link href='/categories/djia-djiem-an-uong'>
                       <a>
-                        <h3 className='h1'>Node Js</h3>
+                        <h3 className='h1'>Địa điểm ăn uống</h3>
                       </a>
                     </Link>
-                    <p className='lead'>
-                      The worlds most popular backend development tool for
-                      JavaScript Ninjas
-                    </p>
+                    <p className='lead'></p>
                   </div>
                 </div>
               </div>
@@ -95,22 +94,21 @@ const Index = () => {
                     style={{
                       backgroundImage:
                         'url(' +
-                        'https://images.pexels.com/photos/540518/pexels-photo-540518.jpeg' +
+                        'https://i.pinimg.com/564x/b2/0a/fb/b20afb6b53abe182112d8f26dbb4d415.jpg' +
                         ')',
                     }}
                   >
-                    <h2 className='text-shadow text-center h1'>Next</h2>
+                    <h2 className='text-shadow text-center h1'>
+                      Công thức đáng nhớ
+                    </h2>
                   </div>
                   <div className='back text-center'>
-                    <Link href='/categories/nextjs'>
+                    <Link href='/categories/cong-thuc-djang-nho'>
                       <a>
-                        <h3 className='h1'>Next Js</h3>
+                        <h3 className='h1'>Công thức đáng nhớ</h3>
                       </a>
                     </Link>
-                    <p className='lead'>
-                      A Production ready web framework for building SEO React
-                      apps
-                    </p>
+                    <p className='lead'></p>
                   </div>
                 </div>
               </div>

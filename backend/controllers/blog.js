@@ -16,7 +16,7 @@ exports.create = (req, res) => {
   form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        error: 'Image could not upload',
+        error: 'Hình ảnh không hợp lệ',
       });
     }
 
@@ -24,25 +24,25 @@ exports.create = (req, res) => {
 
     if (!title || !title.length) {
       return res.status(400).json({
-        error: 'title is required',
+        error: 'Vui lòng nhập tiêu đề',
       });
     }
 
-    if (!body || body.length < 200) {
+    if (!body || body.length < 20) {
       return res.status(400).json({
-        error: 'Content is too short',
+        error: 'Nội dung quá ngắn',
       });
     }
 
     if (!categories || categories.length === 0) {
       return res.status(400).json({
-        error: 'At least one category is required',
+        error: 'Vui lòng chọn ít nhất 1 chủ đề',
       });
     }
 
     if (!tags || tags.length === 0) {
       return res.status(400).json({
-        error: 'At least one tag is required',
+        error: 'Vui lòng chọn ít nhất 1 thẻ',
       });
     }
 
@@ -61,7 +61,7 @@ exports.create = (req, res) => {
     if (files.photo) {
       if (files.photo.size > 10000000) {
         return res.status(400).json({
-          error: 'Image should be less then 1mb in size',
+          error: 'Hình ảnh không được lớn hơn 1mb',
         });
       }
       blog.photo.data = fs.readFileSync(files.photo.path);
@@ -201,7 +201,7 @@ exports.remove = (req, res) => {
       });
     }
     res.json({
-      message: 'Blog deleted successfully',
+      message: 'Xoá bài viết thành công',
     });
   });
 };
@@ -222,7 +222,7 @@ exports.update = (req, res) => {
     form.parse(req, (err, fields, files) => {
       if (err) {
         return res.status(400).json({
-          error: 'Image could not upload',
+          error: 'Không thể tải hình ảnh lên',
         });
       }
 
@@ -248,7 +248,7 @@ exports.update = (req, res) => {
       if (files.photo) {
         if (files.photo.size > 10000000) {
           return res.status(400).json({
-            error: 'Image should be less then 1mb in size',
+            error: 'Hình ảnh phải dưới 1MB',
           });
         }
         oldBlog.photo.data = fs.readFileSync(files.photo.path);
@@ -295,7 +295,7 @@ exports.listRelated = (req, res) => {
     .exec((err, blogs) => {
       if (err) {
         return res.status(400).json({
-          error: 'Blogs not found',
+          error: 'Không tìm thấy bài viết',
         });
       }
       res.json(blogs);

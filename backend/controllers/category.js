@@ -68,7 +68,7 @@ exports.remove = (req, res) => {
       });
     }
     res.json({
-      message: 'Category deleted successfully',
+      message: 'Xoá chủ đề thành công',
     });
   });
 };
